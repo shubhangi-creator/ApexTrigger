@@ -2,7 +2,7 @@
 
 trigger UpdateContactOwnerTrigger on Account(after update) {
 if(Trigger.isUpdate && Trigger.idBefore) {
-UpdateContactOwnerTrigger.updateContactsOwner(Trigger.new, Trigger.oldMap);
+UpdateContactOwnerTriggerHandler.updateContactsOwner(Trigger.new, Trigger.oldMap);
 }
 
 }
