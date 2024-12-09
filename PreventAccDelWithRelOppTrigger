@@ -1,0 +1,8 @@
+// Prevent Account Deletion with Related Opportunities
+trigger AccountTrigger on Account(before delete)
+{
+if(Trigger.isBefore && Trigger.isDelete)
+{
+PreventAccDelWithRelOppTriggerHandler.preventDeletionIfRelatedOpportunitiesExists(Trigger.old);
+}
+}
