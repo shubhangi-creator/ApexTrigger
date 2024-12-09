@@ -1,0 +1,8 @@
+// When the Owner of the Account changes, the owners of all related contacts should automatically update to match.
+
+trigger UpdateContactOwnerTrigger on Account(after update) {
+if(Trigger.isUpdate && Trigger.idBefore) {
+UpdateContactOwnerTrigger.updateContactsOwner(Trigger.new, Trigger.oldMap);
+}
+
+}
