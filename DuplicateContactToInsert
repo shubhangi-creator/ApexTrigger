@@ -1,0 +1,8 @@
+// Prevents Duplicate Contact records to insert based on Email and Phone
+trigger DuplicateContactToInsert on Contact(before insert, before update) {
+if(Trigger.isBefore) {
+if(Trigger.isInsert || Trigger.isUpdate) {
+DuplicateContactToInsertHandler.preventDuplicateContacts(Trigger.new, Trigger.oldMap);
+}
+}
+}
