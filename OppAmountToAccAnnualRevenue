@@ -1,0 +1,5 @@
+// handle Opportunity Amount updates and automatically reflect the changes on the Account’s Annual Revenue field. 
+trigger OppAmountToAccAnnualRevenue on Opportunity(after insert, after update, afer delete, after undelete) {
+OppAmountToAccAnnualRevenueHandler.populateAmountOnAccount(Trigger.new, Trigger.oldMap);
+
+}
